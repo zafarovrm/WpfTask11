@@ -1,0 +1,40 @@
+﻿<Window x:Class="WpfTask11.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfTask11"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1350" Width="1320">
+
+    <Window.Resources>
+        <EllipseGeometry x:Key="Ellipse1" Center="160 160" RadiusX="90" RadiusY="90"/>
+        <EllipseGeometry x:Key="Ellipse2" Center="160 160" RadiusX="120" RadiusY="120"/>
+        <Style TargetType="Path">
+            <Setter Property="Fill" Value="Red"/>
+            <Setter Property="Stroke" Value="Black"/>
+        </Style>
+    </Window.Resources>
+    <Grid>        
+        <Path RenderTransformOrigin="0.0,0.0" Margin="-121.658,-28.694,1247.658,1306.085" Stretch="Fill" Fill="Red" >
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="130" CenterX="150" CenterY="150"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+            <Path.Data>
+                <RectangleGeometry Rect="10,20,140,130"/>
+            </Path.Data>
+        </Path>
+        <Path Grid.RowSpan="3" Fill="Red">
+            <Path.Data>
+                <CombinedGeometry GeometryCombineMode="Xor"
+                                  Geometry1="{StaticResource Ellipse1}"
+                                  Geometry2="{StaticResource Ellipse2}"/>
+            </Path.Data>
+        </Path>
+    </Grid>
+</Window>
